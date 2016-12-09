@@ -1,6 +1,6 @@
-# Final Projects
+## Final Projects
 ----
-### This is where all of you needs to submit your source code and report.
+#### This is where all of you needs to submit your source code and report.
 ----
 
 Here is a short video **[link](https://www.youtube.com/watch?v=XdhuWDdu-rk)** that will show you how to upload your code here. Here is a [list of steps](https://education.github.com/guide/forks#3-completing-assignments) to be followed precsiely.
@@ -9,16 +9,18 @@ And here is a long video **[link](https://www.youtube.com/watch?v=73I5dRucCds)**
 
 Before you commit your project, put your team name, name of all members and matric, project name and class section in README.md file. And put your team name in the description of the commit.
 
-You have to fill up the following section - 
+**At least one of your team member needs to have a GitHub account to be able to submit, do create an account.**
+
+#### You have to fill up the following section - 
 ----
 
-Team Name:
+**Team Name:**
 
-Project Name:
+**Project Name:**
 
-Section:
+**Section:**
 
-Members:
+**Members:**
 
   1. Name (Matric)
   
