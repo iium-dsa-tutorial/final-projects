@@ -15,8 +15,8 @@ Team Name:
 Project Name:
 Section:
 Members:
-..1. Name (Matric)
-..2.
-..3.
-..4.
+1. Name (Matric)
+2.
+3.
+4.
 ====
