@@ -3,7 +3,7 @@
 ### This is where all of you needs to submit your source code and report.
 ----
 
-Here is a short video **[link](https://www.youtube.com/watch?v=XdhuWDdu-rk)** that will show you how to upload your code here.
+Here is a short video **[link](https://www.youtube.com/watch?v=XdhuWDdu-rk)** that will show you how to upload your code here. Here is a [list of steps](https://education.github.com/guide/forks#3-completing-assignments) to be followed precsiely.
 
 And here is a long video **[link](https://www.youtube.com/watch?v=73I5dRucCds)** in case you want to know more.
 
