@@ -11,6 +11,8 @@ Before you commit your project, put your team name, name of all members and matr
 
 **At least one of your team member needs to have a GitHub account to be able to submit, do create an account.**
 
+> Bring the [[DSA Project: Group Assessment.pdf](https://github.com/iium-dsa-tutorial/final-projects/blob/master/DSA%20Project-Group%20Assessment.pdf )] document with you in the presentation.
+
 #### You have to fill up the following section - 
 ----
 
