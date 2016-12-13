@@ -51,6 +51,7 @@ This report is intended to be as a result of reference of the project group has 
  
 > INTRODUCTION
 ----
+
 By the age of globalization, technology are becoming more advanced in the world. It allows businesses or any activity to run smoothly and efficiently. The aim of this project is to implement the quicksort visualization that use by the user in the computer system. Quicksort is a fast sorting algorithm, which is used not only for educational purposes, but widely applied in practice. On the average, it has O(n log n) complexity, making quicksort suitable for sorting big data volumes. 
 
 This study presents several steps to implement the quicksort visualization. Firstly, user need to choose a ‘pivot’. Pivot is a value that picked from the middle of list number. However, it can be any number which is in range of sorted values. Second is partition. Partition is the process of rearrange the elements in the list number to the correct position which is be judged by the pivot number. Elements which are lesser than the pivot go to the left part of the array and all elements greater than the pivot, go to the right part of the array. Values equal to the pivot can stay in any part of the array. Third is sort the both parts. This phase apply quicksort algorithm recursively to the left and the right parts.
@@ -60,6 +61,7 @@ Quicksort is also one of the best example of recursion. It is naturally recursiv
 						
 > EXPLANATION OF ALGORITHMS ON QUICKSORT VISUALIZATION
 ----
+
 Algorithm is a self-contained unit in which it will operate in sequence and step by step by writing in programming language. Algorithms perform calculation, data processing, and automated reasoning tasks.
 
 Sorting algorithm is the process of arranging elements in the list in the correct order either ascending or descending order. The most-used orders are numerical order and lexicographical order also known as lexical order, dictionary order, alphabetical order or lexicographic product. Efficient sorting is important for optimizing the use of other algorithms such as search and merge algorithms which require input data to be in sorted lists.
@@ -73,6 +75,7 @@ Quicksort is aptly named because, when properly implemented, it is the fastest k
 
 > DESCRIPTION OF FUNCTIONS OR CLASSES
 ----
+
 In this project, we complement the quicksort algorithm visualization using computer language that is javaScript. The functions of quicksort visualization are writing in javaScript programming to run the programming code successfully. 
 
 The first function of quicksort visualization is to generate and return random integer that include highest and lowest element by using function ‘randomInt (lowest, highest)’ and the statement is: return lowest + Math.floor ((highest - lowest + 1) * Math.random ()).  Next is function ‘draw_array (myCanvas, myArray, colour)’. myCanvas is an object declared for DOM myCanvas object where we will draw. While myArray is object declared for pure Javascript array to wrap. 
@@ -84,6 +87,7 @@ The other functions is function choose_pivot(animatedArray, pivot_type, left, ri
 
 > DESCRIPTION ON APPROCH THE QUICKSORT VISUALIZATION
 ----
+
 Data visualization is a modern equivalent of visual communication. It involves the creation and study of the visual representation of data, meaning information that has been abstracted in some schematic form, including attributes or variables for the units of information. For examples are graph, pie and etc.
 
 A primary goal of data visualization is to communicate information clearly and efficiently via statistical graphics, plots and information graphics. Numerical data may be encoded using dots, lines, or bars, to visually communicate a quantitative message. Effective visualization helps users analyze and reason about data and evidence. It makes complex data more accessible, understandable and usable. 
