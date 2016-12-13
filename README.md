@@ -25,7 +25,7 @@ Before you commit your project, put your team name, name of all members and matr
 
 **Team Name: Vertex**
 
-**Project Name:QuickSort Visualization**
+**Project Name : QuickSort Visualization**
 
 **Section: 1 **
 
@@ -43,6 +43,18 @@ Before you commit your project, put your team name, name of all members and matr
 
 ### Report
 
-> Your Project Report Goes Here
+> ABSTRACT
+
+ 
+> INTRODUCTION
+						
+> EXPLANATION OF ALGORITHMS ON QUICKSORT VISUALIZATION
+
+> DESCRIPTION OF FUNCTIONS OR CLASSES
+
+> DESCRIPTION ON APPROCH THE QUICKSORT VISUALIZATION
+
+> CONCLUSION
+
 
 ----
