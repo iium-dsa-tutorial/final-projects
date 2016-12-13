@@ -8,12 +8,12 @@ Members:
 
   1. Name: Mohammad Nazir Noori (1327335)
   
-  2. Name: Jawid Arabzada       (Matric)
+  2. Name: Jawid Arabzada       (1328317)
   
-  3. Name: Ibrahim Aini         (Matric)
+  3. Name: Ibrahim Aini         (1218419)
   
   4. Name: Mozhda barekzai      (Matric)
-  5. Name: Faizanullah Faizi    (matric)
+  5. Name: Faizanullah Faizi    (1214703)
 
 ----
 
