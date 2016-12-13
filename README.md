@@ -44,5 +44,18 @@ Before you commit your project, put your team name, name of all members and matr
 ### Report
 
 > Your Project Report Goes Here
+DSA report.
+We have developed a program to visualize the quick sort through Java programming language and in this project we have added an extra sorting which is selection sort as an extra feature of the program.
+In the algorithm we choose the left most element as a pivot following all the steps in quick sort.
+We have used class called sorter where we do all the work such as a method name to swap the numbers whenever it is called and a method named to reload to mix the numbers every time we run the program followed by the sorting algorithms (Quick Sort and Selection Sort).
+And all the code for UI is in the main where we used the paintComponent method to create a line for each number whenever the start click it clicked.
+I have provided the comments for start and stop buttons and all the methods we use such as runAnimation() and PAUSE() and ect.
+Group members:
+1.	Mohammad Nazir Noori 1327334
+2.	Jawid Arabzada       
+3.	Ibrahim Aini
+4.	Faizullah 
+5.	Mohzhda Barikzai
+
 
 ----
