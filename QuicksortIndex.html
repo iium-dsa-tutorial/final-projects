@@ -1,0 +1,94 @@
+
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>QuickSort</title>
+  <script src="files/quicksort-algo.js"></script>
+  <script src="files/jquery-1.11.3.min.js"></script>
+
+  <link href="files/bootstrap.min.css" rel="stylesheet">
+  
+
+  
+  <style>
+      .compare {
+        font-weight: bold;
+        color: #fff;
+      }
+      .swap {
+        font-weight: bold;
+        color: #f00;
+      }
+
+      body {
+    background-color: #9575CD;
+}
+      
+  </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <br>
+    <center><h1>QuickSort Algorithm Visualization</h1></center>
+    <br>
+      <div class="row">
+        <div class="col-xs-3">
+          
+          <div class="text-center">
+            <h2><strong>Array Size : </strong></h2><br> <input id="array-size" type="number" > <br><br>
+            <h2><strong>Speed : </strong></h2><br> <input id="speed" type="number" > <br><br>
+            <button class="btn btn-lg btn-primary" id="start-btn">Sort!</button>
+          </div>
+        </div>
+
+        <div class="col-xs-9" id="canvas-div">
+          <canvas width="800px" height="600px" id="main-canvas" style="width: 982px;">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      $(function() {
+       
+        // Make the canvas fit the available space
+        var resize_canvas = function() {
+          $('#main-canvas').width($('#canvas-div').width());
+        }
+
+        resize_canvas();
+        $(window).resize(resize_canvas);
+
+         $('#start-btn').click(function() {
+         
+          var arraySize = document.getElementById('array-size').value; // the user input the array size
+          if (arraySize == "") {
+              alert("value must be filled out");
+          return false;}
+          var interval = document.getElementById('speed').value; // the user input the array size
+          if (interval == "") {
+              alert("value must be filled out ->> 200 for 0.2 second");
+          return false;} //time interval per instruction 0.2 second
+          var algo = 'quicksort';
+          var pivot_type = "random";
+          var startSort = sorting.get_sort_fn(algo, pivot_type);
+
+      
+
+          var myArray = [];
+          for (var i = 0; i < arraySize; i++) {
+            myArray.push(Math.random() - 0);
+          }
+          var init = 'random';
+          
+
+          var canvas = document.getElementById('main-canvas');
+          var sortingVisualization = new sorting.AnimatedArray(myArray, canvas, interval);
+          startSort(sortingVisualization);
+        });
+      });
+    </script>
+  
+
+</body></html>
