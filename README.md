@@ -23,21 +23,21 @@ Before you commit your project, put your team name, name of all members and matr
 #### You have to fill up the following section - 
 ----
 
-**Team Name:**
+**Team Name: Vertex**
 
-**Project Name:**
+**Project Name:QuickSort Visualization**
 
-**Section:**
+**Section: 1 **
 
 **Members:**
 
-  1. Name (Matric)
+  1. KHAIRUDDIN BIN CHE OTHMAN 1510735
   
-  2. Name (Matric)
+  2. SITI SHAHRINA BINTI JAFFAR 1417240
   
-  3. Name (Matric)
+  3. AHMAD ZUL AFKAR BIN SAIFUL BAHRI 1519675
   
-  4. Name (Matric)
+  4. MOHAMMAD SYUKRI FAIZ BIN MD NASIR 1516471
   
 ----
 
