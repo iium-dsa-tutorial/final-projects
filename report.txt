@@ -1,0 +1,29 @@
+MAJOR CLASSES
+1)	Search()
+-	the class contains the input that we search
+2)	GUIAddFile()
+-	the class contains all the features that this system has
+-	it is the interface of the system
+3)	Folder()
+-	the class is inheritance from the search class if the user asked to search about the folder
+4)	FolderArray()
+-	the class will add any created folder that they user key in
+-	it will show the folder the user search
+5)	File()
+-	the class is inheritance from the search class if the user asked to search the files
+6)	FileArray()
+-	the class will show the file that the user search.
+-	It will add every file that they created 
+
+MAJOR FUNCTIONS
+1)	private static void increaseSize ()
+-	to increase the size of the folder or file that the user created
+2)	public String display()
+-	to display all the file or the folder that the user try to search
+3)	private void initialize()
+-	the function initializes the folder or the file search
+-	it will save the new folder/file that the user created
+-	the searching of the folder or the file is not case sensitive
+
+PATTER MATCHING
+-the folder or the file must be search using the complete name
