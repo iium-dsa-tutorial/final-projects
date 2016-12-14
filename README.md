@@ -23,26 +23,40 @@ Before you commit your project, put your team name, name of all members and matr
 #### You have to fill up the following section - 
 ----
 
-**Team Name:**
+**Team Name:** Pyhton
 
-**Project Name:**
+**Project Name:** File System Search
 
-**Section:**
+**Section:** 2
 
 **Members:**
 
-  1. Name (Matric)
+  1. MUHAMAD AMIRUDDIN BIN AMIN (1511513)
   
-  2. Name (Matric)
+  2. MUHAMAD ZAHIRUDDIN BIN MUHAMAD ZAINI (1517473)
   
-  3. Name (Matric)
+  3. AHMAD MUZZAMMIL BIN AZMAN (1519579)
   
-  4. Name (Matric)
+  4. MOHD SHAREZZA BIN SAIRAN (1411387)
   
 ----
 
 ### Report
 
-> Your Project Report Goes Here
+> Report
+Abstract
+This report is rundown of our venture of class Data Structure and Algorithm. The principle goal of this venture is that we can see how the index document seek framework is working in the PC. We likewise need to know how to actualize this idea in programming dialect.
+Introduction
+First of all, this group (Python) has been assigned to do a Directory File Search System project. In computing, a directory is a file system cataloging structure which contains references to other computer files, and possibly other directories. Directory file search system is about how we find a file in a computer by using it directory without using entering a long query.
+It is basic in the event that we need to discover our document in the PC on the off chance that it is show on the desktop. We just essentially tap the document and it will fly up quickly. Be that as it may, we should need to seek our work which is covered up in document and covered up in the registry. It must be hard and set aside long opportunity to scan for it. So the registry record look framework empowers us to find them effortlessly. 
+
+Overview
+Basically in our project, its just a simple searching file system that prompt the user to enter the file to be search and then the system will search the file word by word until the file is found. 
+
+Discussion
+We utilize the #include library in ours. In addition, #include library empower the framework to interface with the record in the entire PC. Fundamentally in this venture, our calculation is utilizing stack, profundity first scan is a calculation for navigating or looking tree or diagram information structures. One begins at the root (selecting some self-assertive hub as the root on account of a chart) and investigates beyond what many would consider possible along every branch before backtracking
+Conclusion
+In conclusion, we admit that directory file search system is very important to preserve the effectiveness of computing for example in saving times and to locate every files in the system.
+
 
 ----
