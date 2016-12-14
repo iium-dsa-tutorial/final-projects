@@ -27,17 +27,17 @@ Before you commit your project, put your team name, name of all members and matr
 
 **Project Name:**
 
-**Section:**
+**Section:2**
 
 **Members:**
 
-  1. Name (Matric)
+  1. nurul sufina 1421256
   
-  2. Name (Matric)
+  2. shaidatul addilla 1515914
   
-  3. Name (Matric)
+  3. nurul izyan syaza 1512420
   
-  4. Name (Matric)
+  4. nur afiqah 1513260
   
 ----
 

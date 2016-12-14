@@ -1,0 +1,53 @@
+FEATURES
+
+In this project, the system works as a file search system which can display, create, clear the searching 
+box and search files or folders. It will only display the file and folder creates by the user. If the
+ user creates a new file or folder, it will be added into the system and he has to choose either to 
+save as file or folder. When the user wants to search the file or folder, he needs to enter the exact 
+name of the file or folder if not the system will send an error message of “Data not found!” to aware 
+the user about his mistakes. Then he needs to enter the “Search file” button to search the file and 
+enter the “Search folder” button to search folder.  The function of the “Clear” button is to clear 
+all the data that appeared when the user search the file or the folder. 
+
+ALGORITHM
+
+For this system, the basic approach to search is to simply visit every file and folder in a certain 
+location one-by-one whenever a search is performed. The idea is that when the searching of files is 
+performed, it will list all the files that have the exact names. The file or folder create by the 
+user will be stored in an array. The array is used to store a collection of data, and consist of 
+contiguous memory locations. In this system, an empty array is created. The function of the array
+is when the user created a new file or folder, it will displayed next after the file or folder had 
+created before. This system’s has a steady growth since it yields big O(N). Its performance will grow 
+linearly and in direct proportion to the size of the input of data set. It will take less time to 
+execute the codes for searching the files or folders in the system since it used big O(N).
+
+
+MAJOR CLASSES
+1)	Search()
+-	the class contains the input that we search
+2)	GUIAddFile()
+-	the class contains all the features that this system has
+-	it is the interface of the system
+3)	Folder()
+-	the class is inheritance from the search class if the user asked to search about the folder
+4)	FolderArray()
+-	the class will add any created folder that they user key in
+-	it will show the folder the user search
+5)	File()
+-	the class is inheritance from the search class if the user asked to search the files
+6)	FileArray()
+-	the class will show the file that the user search.
+-	It will add every file that they created 
+
+MAJOR FUNCTIONS
+1)	private static void increaseSize ()
+-	to increase the size of the folder or file that the user created
+2)	public String display()
+-	to display all the file or the folder that the user try to search
+3)	private void initialize()
+-	the function initializes the folder or the file search
+-	it will save the new folder/file that the user created
+-	the searching of the folder or the file is not case sensitive
+
+PATTER MATCHING
+-the folder or the file must be search using the complete name
