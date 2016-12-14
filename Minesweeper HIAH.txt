@@ -1,78 +1,39 @@
-## Final Projects
-----
-#### This is where all of you needs to submit your source code and report.
-----
-
-Here is a short video **[link](https://www.youtube.com/watch?v=XdhuWDdu-rk)** that will show you how to upload your code here. Here is a [list of steps](https://education.github.com/guide/forks#3-completing-assignments) to be followed precsiely.
-
-And here is a long video **[link](https://www.youtube.com/watch?v=73I5dRucCds)** in case you want to know more.
-
-Before you commit your project, put your team name, name of all members and matric, project name and class section in README.md file. And put your team name in the description of the commit.
-
-**At least one of your team member needs to have a GitHub account to be able to submit, do create an account.**
-
-#### You have to fill up the following section - 
-----
-
-**Team Name:**
-HIAH
-
-**Project Name:**
-Minesweeper
-
-**Section:**
-3
-
-**Members:**
-
-  1. Illyas Hadi bin Ismail (1410579)
-  
-  2. Abdul Hakeem bin Anuar (1517199)
-  
-  3. Muhammad Haiqal bin Rosli (1516243)
-----
-
-### Report
-
-----
-
-For this project, we are required to develop a program of a game named Minesweeper. Minesweeper is a single-player puzzle game that utilizes strategy and chance. The objective of the game is to clear a rectangular board containing hidden "mines" or “bombs” without detonating any of them, with help from clues about the number of neighboring mines in each field. Our minesweeper game is a simple program that uses C++ language. The game is a 5x5 rectangular board with five mines, one for each row. The program starts with a clear board with x and y coordinate used to pinpoint the selected box to be picked. The game will continue as the player picked the non-mine box showing the number clues until all 5 mine box are left, resulting in a complete game, or a game over when one of the mine box is selected. After either of the result, the program will close.
-
-### Code With Comments
-
 #include<iostream>
 #include<stdlib.h>
 #include<time.h>
 using namespace std;
 
+int count=0;
+
 int cmp(int,int,int[][5]);
 void clean(void);
 int drawBoard(int [][5],int,int,int);
+void Win(void);
 
-int main(){						//main function
-	int grid[5][5]={0,0,0,0,0,		//create 2d array
-			    0,0,0,0,0,
-			    0,0,0,0,0,
-			    0,0,0,0,0,
-			    0,0,0,0,0};
+int main(){
+	int grid[5][5]={0,0,0,0,0,
+					0,0,0,0,0,
+					0,0,0,0,0,
+					0,0,0,0,0,
+					0,0,0,0,0};
 					
 	srand(time(NULL));
 		
-	int rng,x=-1,y=-1,result=0,count=0;
+	int rng,x=-1,y=-1,result=0;
 		
-int r1[5]={9,0,0,0,0};	//initialize all row with 9 as bomb
+	int r1[5]={9,0,0,0,0};
 	int r2[5]={0,9,0,0,0};
 	int r3[5]={0,0,9,0,0};
 	int r4[5]={0,0,0,9,0};
 	int r5[5]={0,0,0,0,9};
 			
-	for(int i=0;i<5;i++)			//loop for randomizing bomb
-	{						  location
+	for(int i=0;i<5;i++)
+	{
 		rng = rand() % 5;
 			
 		switch(rng)
 		{
-			case 0: for(int j=0;j<5;j++){		
+			case 0: for(int j=0;j<5;j++){
 				grid[i][j]=r1[j];
 				//cout<<grid[i][j];
 			};//cout<<"\n";
@@ -100,18 +61,18 @@ int r1[5]={9,0,0,0,0};	//initialize all row with 9 as bomb
 		}
 	}
 	
-	while(result!=-1 || count==20)	//loop where actual game is run
+	while(result!=-1)
 	{
 		grid[x][y]=drawBoard(grid,result,x,y);
 		
 		cout<<"Input coordinates: ";
 		cin>>x>>y;
 		
-		result=cmp(x,y,grid);		//result from cmp function prints
-							  the number of neighboring bomb
+		result=cmp(x,y,grid);
+		
 		if(result==-1)
 		{
-			cout<<"Bomb";
+			cout<<"\nBomb";
 			return 0;
 		}
 		
@@ -119,20 +80,26 @@ int r1[5]={9,0,0,0,0};	//initialize all row with 9 as bomb
 		//cout<<"\n"<<result<<"\n";
 		count++;
 		
-		clean();			//cleans screen after each selection
+		clean();
+		
+		if(count==20){
+			Win();
+			
+			return 0;
+		}
 	}
 	return 0;
 }
 
-int cmp(int a,int b,int grid[5][5])		//function where input from main
-{							  and board is analyzed for
-	int c=0;					  calculating neighbor bombs
+int cmp(int a,int b,int grid[5][5])
+{
+	int c=0;
 	
 	if(grid[a][b]==9)
-		return -1;			//return -1 for bomb selected and finish
+		return -1;
 	
-	if(a==0 && b==0)			//code for algorithm for upper-left box
-	{					  of the board
+	if(a==0 && b==0)	//upperleft
+	{
 		if(grid[a][b+1]==9)
 		{
 			c++;
@@ -149,7 +116,7 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;	
 	}
-	if(a==0 && b==4)			//code for algorithm for upper-right box
+	if(a==0 && b==4)	//upperright
 	{
 		if(grid[a][b-1]==9)
 		{
@@ -167,7 +134,7 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;	
 	}
-	if(a==4 && b==0)			//code for algorithm for lower-left box
+	if(a==4 && b==0)	//lowerleft
 	{
 		if(grid[a-1][b]==9)
 		{
@@ -185,7 +152,7 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;	
 	}
-	if(a==4 && b==4)			//code for algorithm for lower-right box
+	if(a==4 && b==4)	//lowerright
 	{
 		if(grid[a][b-1]==9)
 		{
@@ -203,8 +170,8 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;	
 	}
-	if(a==0 && (b==1||b==2||b==3))	//code for algorithm for 3 middle 
-	{						  box of the top row
+	if(a==0 && (b==1||b==2||b==3))	//1st3row
+	{
 		if(grid[a][b-1]==9)
 		{
 			c++;
@@ -231,8 +198,8 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;
 	}
-	if((a==1||a==2||a==3) && b==0)	//code for the 3 middle box of left
-	{						  column
+	if((a==1||a==2||a==3) && b==0)	//1st3col
+	{
 		if(grid[a-1][b]==9)
 		{
 			c++;
@@ -259,8 +226,8 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;
 	}
-	if(a==4 && (b==1||b==2||b==3))	//code for the 3 middle box of the
-	{						  lowest row
+	if(a==4 && (b==1||b==2||b==3))	//4th3row
+	{
 		if(grid[a][b-1]==9)
 		{
 			c++;
@@ -287,8 +254,8 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;
 	}
-	if((a==1||a==2||a==3) && b==4)	//code for the 3 middle box of 
-	{						  right column
+	if((a==1||a==2||a==3) && b==4)	//4th3col
+	{
 		if(grid[a-1][b]==9)
 		{
 			c++;
@@ -315,7 +282,7 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 		}
 		return c;
 	}
-	if((a==1||a==2||a==3) && (b==1||b==2||b==3)) //code for the inner box	
+	if((a==1||a==2||a==3) && (b==1||b==2||b==3))//	inner
 	{
 		if(grid[a-1][b-1]==9)
 		{
@@ -362,9 +329,9 @@ int cmp(int a,int b,int grid[5][5])		//function where input from main
 
 int drawBoard(int grid[5][5],int result,int x,int y)
 {
-	//  _0_1_2_3_4_			//function to redraw board after each
-	// 0|_|_|_|_|_|			  selection including the number clues
-	// 1|_|_|_|_|_|			  acquired from past selection
+	//  _0_1_2_3_4_
+	// 0|_|_|_|_|_|
+	// 1|_|_|_|_|_|
 	// 2|_|_|_|_|_|
 	// 3|_|_|_|_|_|
 	// 4|_|_|_|_|_|
@@ -385,7 +352,7 @@ int drawBoard(int grid[5][5],int result,int x,int y)
 		{
 			if (grid[i][j]==9)
 			{
-				cout << "b|";
+				cout << "_|";		//bomb
 			}
 			else if (grid[i][j]==1)
 			{
@@ -425,7 +392,7 @@ int drawBoard(int grid[5][5],int result,int x,int y)
 	return result;
 }
 
-void clean()	//clean screen function
+void clean()
 {
 	cout<<flush;
 	system("CLS");
@@ -433,5 +400,8 @@ void clean()	//clean screen function
 	return;
 }
 
-
-----
+void Win(){
+	cout<<"YOU WIN!!";
+	
+	return;
+}
