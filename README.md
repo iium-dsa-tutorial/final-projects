@@ -1,48 +1,30 @@
-## Final Projects
-----
-#### This is where all of you needs to submit your source code and report.
-----
+Team Name: Sz
 
-Here is a short video **[link](https://www.youtube.com/watch?v=XdhuWDdu-rk)** that will show you how to upload your code here. Here is a [list of steps](https://education.github.com/guide/forks#3-completing-assignments) to be followed precsiely.
+Project Name: QuickSort Visualization
 
->
-  1. At first, **fork** this repository
-  2. Then **Clone** the forked repository from your account to your pc
-  3. Then add all your project files and put your report in the README.md file
-  4. **Push/Sync** all the changes you made to github
-  5. Create a **Pull Request** on the original repository to complete submission
+Section: 3
 
-And here is a long video **[link](https://www.youtube.com/watch?v=73I5dRucCds)** in case you want to know more.
+Members:
 
-Before you commit your project, put your team name, name of all members and matric, project name and class section in README.md file. And put your team name in the description of the commit.
-
-**At least one of your team member needs to have a GitHub account to be able to submit, do create an account.**
-
-> Bring the [[DSA Project: Group Assessment.pdf](https://github.com/iium-dsa-tutorial/final-projects/blob/master/DSA%20Project-Group%20Assessment.pdf )] document with you in the presentation.
-
-#### You have to fill up the following section - 
-----
-
-**Team Name:**
-
-**Project Name:**
-
-**Section:**
-
-**Members:**
-
-  1. Name (Matric)
+  1. Name: Mohammad Nazir Noori (1327335)
   
-  2. Name (Matric)
+  2. Name: Jawid Arabzada       (1328317)
   
-  3. Name (Matric)
+  3. Name: Ibrahim Aini         (1218419)
   
-  4. Name (Matric)
-  
+  4. Name: Mozhda barekzai      (1217092)
+  5. Name: Faizanullah Faizi    (1214703)
+
 ----
 
 ### Report
 
-> Your Project Report Goes Here
+We have developed a program to visualize the quick sort through Java programming language and in this project we have added an extra sorting which is selection sort as an extra feature of the program.
 
-----
+We have used a class called sorter where we do all the work such as a method name swap to sawp the numbers whenever it is called and a method named reload to mix the numbers every time we run the program followed by the sorting algorithms (Quick Sort and Selection Sort).
+
+Quick sort algorithm : in algorithm that we have used we choose the left most item as the pivot and after that we make the partition to left and right . then we compare the value of both side left and right if the value of right is greater than value of left we move to another item in right side , and if left is lesser than right and value of left lesser or equal to pivot we move to the right side by one . then if left is lesser than right we do swap the values . and we call quicksort again to to do the same process recursively .
+
+And all the code for UI is in the main where we used the paintComponent method to create a line for each number whenever the start click it clicked.
+I have provided the comments for start and stop buttons and all the methods we use such as runAnimation() and PAUSE() and ect.
+

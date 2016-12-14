@@ -1,0 +1,157 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.util.Random;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Sorterr extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private static Random randomGeneratore = new Random();
+    private static final int SIZE = 600;
+    private static final int MAX_VALUE = 400;
+	private static final Color Color = null;
+    private final int[] array = new int[SIZE];
+    private transient boolean shouldStop = false;
+//    final Color color;
+    
+    private void swap(int[] a, int i, int j) {
+        int old = a[i];
+        a[i] = a[j];
+        a[j] = old;
+    }
+    private void reload(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            a[i] = randomGeneratore.nextInt(MAX_VALUE);
+        }
+    }
+    
+    //Selection Sort
+    
+    public void selectionSort(int[] a) {
+        for (int i = 0; i < a.length - 1; i++) {
+            int small = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < a[small]) small = j;
+                PAUSE();
+            }
+            swap(a, i, small);
+        }
+    }
+
+    public void quickSort(int[] a) {
+        // First Mix the array
+        for (int i = 0; i < a.length; i++) {
+            swap(a, i, randomGeneratore.nextInt(SIZE));
+        }
+
+        // Call the recursive helper
+        quickSort(a, 0, a.length - 1);
+    }
+    private void quickSort(int[] a, int left, int right) {
+        if (left < right) {
+            int i = left;
+            int j = right;
+            while (i < j) {
+                while (a[j] > a[left]) {j--; PAUSE();}
+                while (i < j && a[i] <= a[left]) {i++; PAUSE();}
+                if (i < j) swap(a, i, j);
+            }
+            swap(a, left, j);
+            quickSort(a, left, j-1);
+            quickSort(a, j+1, right);
+        }
+    }
+    public static void main(String[] args) {
+        Sorterr sorter = new Sorterr();
+        JFrame frame = new JFrame("Sorting");
+        frame.getContentPane().add(sorter.toolbar, "North");
+        frame.getContentPane().add(sorter, "Center");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+        frame.setResizable(false);
+        frame.add(sorter.startButton, BorderLayout.NORTH);
+        frame.add(sorter.stopButton, BorderLayout.SOUTH);
+        frame.setTitle("Quick Sort Visualization. DSA section 3");
+        frame.pack();
+        frame.setVisible(true);
+        sorter.runAnimation();
+    }
+    
+    // START BUTTON
+	Action startAction = new AbstractAction("Start") {
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(ActionEvent e) {
+            final String methodName = (String)comboBox.getSelectedItem();
+                new Thread(new Runnable() {
+                public void run() {
+                startButton.setEnabled(false);
+                stopButton.setEnabled(true);
+                reload(array);
+                try {
+                        Sorterr.class.getMethod(methodName,new Class[]{array.getClass()}) // Returns:The Class object that represents the runtime class of this object
+                        .invoke(Sorterr.this, new Object[]{array});
+                } catch (Exception e) {
+                }
+                stopButton.setEnabled(false);
+                startButton.setEnabled(true);
+            }}
+        ).start();
+    }
+    };
+    
+    // STOP BUTTON
+    Action stopAction = new AbstractAction("Stop") {
+		private static final long serialVersionUID = 1L;
+		public void actionPerformed(ActionEvent e) {
+            shouldStop = true;
+        }
+    };
+    private JButton toolbar = new JButton();
+    private JButton startButton = new JButton(startAction);
+    private JButton stopButton = new JButton(stopAction);
+    JComboBox comboBox = new JComboBox(new String[]{"quickSort","selectionSort"});
+    public Sorterr() {
+    	super();	
+        setPreferredSize(new Dimension(600,400));
+        toolbar.add(comboBox);
+        toolbar.add(startButton);
+        toolbar.add(stopButton);
+        comboBox.setMaximumRowCount(30);
+        super.add(toolbar, BorderLayout.SOUTH);
+    }
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.red);
+        super.setBackground(Color.white);
+        for (int i = 0, n = array.length; i < n; i++) {
+            g.drawLine(i, MAX_VALUE, i, MAX_VALUE - array[i]);
+        }
+    }
+    private void runAnimation() {
+        while (true){
+            repaint();
+            
+            try {Thread.sleep(30);} catch (InterruptedException e) {}
+        }
+    }
+    private void PAUSE() {
+        try {
+            Thread.sleep(1);
+            if (shouldStop) {
+                shouldStop = false;
+                throw new RuntimeException();
+            }
+        } catch (InterruptedException e) {
+        }
+    }
+}
