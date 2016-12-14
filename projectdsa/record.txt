@@ -1,0 +1,8 @@
+notepad
+firefox
+torch
+dsa
+compnet
+webtech
+education
+antivirus
