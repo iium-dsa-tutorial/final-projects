@@ -1,0 +1,12 @@
+body{
+background-image : url("huhu.jpg");
+background-size: cover;
+}
+#pleasewait{
+	font-family : "Brush Script Std", Calibri;
+	color : #FFF;
+}
+
+h1{
+	font-family: "Curlz MT", Calibri;
+}
