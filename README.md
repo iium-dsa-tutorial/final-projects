@@ -23,26 +23,76 @@ Before you commit your project, put your team name, name of all members and matr
 #### You have to fill up the following section - 
 ----
 
-**Team Name:**
+Team Name: OblongAyamSpecial 2
 
-**Project Name:**
+Project Name: Scientific Calculator
 
-**Section:**
+Section: 1
 
-**Members:**
+Members:
 
-  1. Name (Matric)
+  1. Mohd Muhaimin (1511435)
   
-  2. Name (Matric)
+  2. Umar Faruq (1513781)
   
-  3. Name (Matric)
+  3. Khairul Ikhwan (1517559)
   
-  4. Name (Matric)
+  4. Ameerul Afiqeen (1513995)
   
 ----
 
-### Report
+Project Report:
 
-> Your Project Report Goes Here
+	INTRODUCTION
 
-----
+In this project, our group aims to develop source code in the form of a computer program that could be used in a scientific calculator to compute functions such as square root, sine cos tan function and etc. Since all mathematical function are define in library, so we have return the value of the function to call function. We also use switch-case statement and a do-while loop to keep the program running until user stop it.
+This code compromise of one class that is scientific calculator. This class will help to perform all sixteen calculations. It also contain static function to ensure that these function can be called in main function through class name.
+
+LOGIC OF PROGRAMME
+
+1.	Adding two number
+2.	Subtracting the second number from the first number
+3.	Multiplying two number
+4.	Dividing first number from second
+5.	Modulus of first number by second number
+6.	Determine square of the number
+7.	Determine the cube of the number
+8.	Determine square root of the number
+9.	Determine first number power of second number
+10.	Determine the factorial of a number.
+11.	Determine the sin, cos and tan value of a number
+12.	Determine the logarithm, natural logarithm and exponential of a   number.
+
+
+SCIENTIFIC CALCULATOR
+
+FUNCTION				DESCRIPTION
+Addition			return the addition of two input number
+Subtraction			return the subtraction of two number
+Multiplication			return the multiplication of two number
+Division			return the division of two number
+Square				accept a number and returns the square of the number
+Square root			accept a number and returns the square root of the number
+Cube				accept a number and returns the cube of the number
+Power				accept two number and returns the 1st power to 2nd number
+Factorial			returns a factorial of an input number
+Sin_dsa				returns the sin value of an input number
+Cos_dsa				returns the cos value of an input number
+Tan_dsa				returns the tan value of an input number
+Log_dsa				returns the log value of an input number
+Log10_dsa			returns the log10 value of an input number
+Exp_dsa				returns the exponential value of an input number
+
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
