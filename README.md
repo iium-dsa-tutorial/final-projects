@@ -58,6 +58,7 @@ In our project we use local storage. The use of localStorage is to store data lo
 
 ## The Format of the Accepted Questions to the System
 Our system can find relative in the family two steps above. The formats are:
+
 1.	Who is your grandfather?
 2.	Who is your grandmother?
 3.	Who is your father?
