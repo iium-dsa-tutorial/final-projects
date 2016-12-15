@@ -24,25 +24,46 @@ Before you commit your project, put your team name, name of all members and matr
 ----
 
 **Team Name:**
+hems
 
 **Project Name:**
+Family Tree
 
 **Section:**
+1
 
 **Members:**
 
-  1. Name (Matric)
+  1. Wan Mohammad Faris bin Khalil (1427105)
+
+  2. Syed Sirajuddin Bin Syed Sofi  (1421755)
   
-  2. Name (Matric)
+  3. Mohd Amir Amzar Bin Sauli  (1413851)
   
-  3. Name (Matric)
-  
-  4. Name (Matric)
+  4. Mohamad Faiz Bin Sumadi  (1425763)
   
 ----
 
 ### Report
 
-> Your Project Report Goes Here
+EXTRA FEATURES
+	Some extra features that we add is the ability to delete the tree that has been created and delete. We also can search name of family members.
+
+EXPLANATION ALGORITHMS
+	We use BST algorithm to make display the family tree. Father will become the first child of root and the mother is the sibling of father node. Then, each of father and mother node have two children that altogether has four children to the parents.
+
+ALL MAJOR FUNCTIONS/CLASSES
+struct Node
+class BST
+insert
+deleteNode
+display
+has
+	
+DETAIL OF DATA STORAGE SCHEME
+	Cannot save data.
+
+DETAIL OF FORMAT OF ACCEPTED QUESTIONS
+	How the function works and basic questions.
 
 ----
