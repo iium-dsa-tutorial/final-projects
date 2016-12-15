@@ -1,0 +1,255 @@
+--HTML--
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Paint Program</title>
+  </head>
+
+  <body>
+  
+  <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4cafa6;
+}
+</style>
+</head>
+<body>
+
+
+
+
+<ul>
+  <li><a class="active" href="#file">File</a></li>
+  <li><a href="#tools">Tools</a></li>
+  <li><a href="#view">View</a></li>
+  <li style="float:right"><a href="#Version 1.0">Version 1.0</a></li>
+</ul>
+  
+   
+  
+  
+    <div id="controls"><br>
+      <input id="upload" type="file" accept="image/*"/><br><br><br><br><br><br><br><br><br><br><br>
+      <p>Blur radius
+        <input value="5" id="blur" type="number"/>
+      </p>
+      <p>Threshold
+        &nbsp <input value="15" id="threshold" type="number"/>
+      </p>
+      <button id="Trace">Copy</button>
+    </div>
+    <div id="display">      
+      <img id="test"/>
+      <canvas id="canvas"></canvas>
+    </div>  
+  </body>
+
+</html>
+
+-------------------------------------------------------------------------------------
+Javasript
+
+$(function() {
+  var colorThreshold = 10,
+      blurRadius = 6,
+      simplifyTolerant = 0,
+      simplifyCount = 30,
+      hatchLength = 4,
+      hatchOffset = 0,
+      imageInfo = null,
+      cacheInd = null,
+      cacheInds = [],      
+      downPoint = null,
+      mask = null,
+      masks = [],
+      allowDraw = false,
+      currentThreshold = colorThreshold;
+
+  $('#upload').on('change', function () {
+    var inp = this;
+    if (inp.files && inp.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function (e) {
+        var img = $('#test');
+        img.attr('src', e.target.result);
+        
+        img.on('load', function() {
+          resetCache();
+          var canvas = $('#canvas')[0];
+          imageInfo = {
+            width: img.width(),
+            height: img.height(),
+            context: canvas.getContext("2d")
+          };          
+          canvas.width = imageInfo.width;
+          canvas.height = imageInfo.height;
+          var tempCanvas = document.createElement('canvas'),
+              tempCtx = tempCanvas.getContext("2d");
+          tempCanvas.width = imageInfo.width;
+          tempCanvas.height = imageInfo.height;
+          tempCtx.drawImage(img[0], 0, 0);
+          imageInfo.data = tempCtx.getImageData(0, 0, imageInfo.width, imageInfo.height).data;
+        });
+      };
+      reader.readAsDataURL(inp.files[0]);
+    }
+  });
+
+  $('#blur').on('change keyup', function () {
+    blurRadius = Number($(this).val()) || 0;
+    magic();
+  });
+
+  $('#threshold').on('change keyup', function () {
+    currentThreshold = Number($(this).val()) || 0;
+    magic();
+  });
+
+  $('#canvas').on('click', function (e) {
+    var p = $(e.target).offset(),
+        x = Math.round((e.clientX || e.pageX) - p.left),
+        y = Math.round((e.clientY || e.pageY) - p.top);    
+    downPoint = { x: x, y: y };    
+    magic();
+  });
+
+  var magic = function () {
+    if (imageInfo) {
+      var image = {
+        data: imageInfo.data,
+        width: imageInfo.width,
+        height: imageInfo.height,
+        bytes: 4
+      };
+      mask = MagicWand.floodFill(image, downPoint.x, downPoint.y, currentThreshold);
+      mask = MagicWand.gaussBlurOnlyBorder(mask, blurRadius);
+      masks.push(mask);
+      cacheInds.push(MagicWand.getBorderIndices(mask));
+      drawBorder(true);
+    }
+  };
+  
+  var drawBorder = function () {
+    if (masks.length) {
+
+      var x, y, k, i, j, m,
+          w = imageInfo.width,
+          h = imageInfo.height,
+          ctx = imageInfo.context,
+          imgData = ctx.createImageData(w, h),
+          res = imgData.data;
+      
+      ctx.clearRect(0, 0, w, h);
+      
+      for (m = 0; m < masks.length; m++) {
+        
+        cacheInd = cacheInds[m];
+        
+        for (j = 0; j < cacheInd.length; j++) {
+          i = cacheInd[j];
+          x = i % w; // calc x by index
+          y = (i - x) / w; // calc y by index
+          k = (y * w + x) * 4; 
+          if ((x + y + hatchOffset) % (hatchLength * 2) < hatchLength) { 
+            // detect hatch color 
+            res[k + 3] = 255; // black, change only alpha
+          } else {
+            res[k] = 255; // white
+            res[k + 1] = 255;
+            res[k + 2] = 255;
+            res[k + 3] = 255;
+          }
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+    }
+  };
+
+  setInterval(function () {
+    hatchOffset = (hatchOffset + 1) % (hatchLength * 2);
+    drawBorder();
+  }, 100);
+  
+  $('#trace').on('click', function () {
+    var ctx = imageInfo.context;
+    ctx.clearRect(0, 0, imageInfo.width, imageInfo.height);
+    for (var m = 0; m < masks.length; m++) {
+      // draw contours
+      var i, j, ps, cs = MagicWand.traceContours(masks[m]);
+      cs = MagicWand.simplifyContours(cs, simplifyTolerant, simplifyCount);
+      //inner
+      ctx.beginPath();
+      for (i = 0; i < cs.length; i++) {
+        if (cs[i].inner) {
+          ps = cs[i].points;
+          ctx.moveTo(ps[0].x, ps[0].y);
+          for (j = 1; j < ps.length; j++) {
+            ctx.lineTo(ps[j].x, ps[j].y);
+          }
+        }
+      }
+      ctx.strokeStyle = 'red';
+      ctx.stroke();
+      //outer
+      ctx.beginPath();
+      for (i = 0; i < cs.length; i++) {
+        if (!cs[i].inner) {
+          ps = cs[i].points;
+          ctx.moveTo(ps[0].x, ps[0].y);
+          for (j = 1; j < ps.length; j++) {
+            ctx.lineTo(ps[j].x, ps[j].y);
+          }
+        }
+      }
+      ctx.strokeStyle = 'blue';
+      ctx.stroke(); 
+    }
+    resetCache();
+  });
+    
+  var resetCache = function () {
+    mask = null;
+    masks = [];
+    cacheInds = [];
+  };
+  
+});
+-------------------------------------------------------------------------------------
+CSS
+
+#display * {
+  cursor: crosshair;
+  position: absolute;
+}

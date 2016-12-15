@@ -23,26 +23,63 @@ Before you commit your project, put your team name, name of all members and matr
 #### You have to fill up the following section - 
 ----
 
-**Team Name:**
+**Team Name:ANYTHING
 
-**Project Name:**
+**Project Name:PHOTOSHOP MAGIC WAND TOOL
 
-**Section:**
+**Section:4
 
 **Members:**
 
-  1. Name (Matric)
+  1. Mohib Ali Mowj (1214483)
   
-  2. Name (Matric)
+  2. Ahmad hasrul yusdi bin Hassan 1519101
   
-  3. Name (Matric)
+  3. Mohamad Rafic bin Hyrudeen 1423667
   
-  4. Name (Matric)
+  4. 4.	Wan Muhammad Syukri bin Wan Nong 1328359
   
 ----
 
 ### Report
 
-> Your Project Report Goes Here
 
-----
+
+Algorithm Explanation
+There are three languages that are being used in this project namely:
+1. HTML
+2. CSS
+3. JAVASCRIPT
+
+
+HTML
+HTML is used as it’s the easiest language to visualize any interface. It’s shorter compared to others and can be displayed directly into the web. 
+Magicwandtool.html contains top menu bar with File, Tools, View and Version buttons for the user to navigate in between.
+There is one button to upload the image (Browse…)
+Blur radius and threshold boxes are created for the user to manually adjust the tool as their desire.
+Last feature is copy button where the user will be able to copy the cropped image and save it anywhere as their wish.
+
+CSS
+Mechanism to add more styles to web document.
+1. cursor
+2. position
+
+JAVASCRIPT
+Replaces PHP/servlet as the document which program the behavior/function of the web document.
+Process the image inserted by the user
+Process the blur radius
+Process the threshold
+Description of Major Functions/Classes
+
+Program Interface
+Consists of menu bar which contains buttons (File, Tools, View, Version1.0) which will redirect the page to another page.
+
+Browse… button which will redirect to users’ local disk for uploading image process.
+
+Blur radius and Threshold text boxes for the user to manually adjust the cursor/pointer as they crop the image.
+Copy button to copy the cropped image.
+
+Detail of Image Loading/Storing Process
+img.on('load', function() 
+We use the function to upload the image preferred by the user and then user can select the area which he/she wants to crop.
+
