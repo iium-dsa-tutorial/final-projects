@@ -23,7 +23,7 @@ Before you commit your project, put your team name, name of all members and matr
 #### You have to fill up the following section - 
 ----
 
-**Team Name:**
+**Team Name:Smart Tag**
 
 **Project Name:Minimal SQL Database**
 
