@@ -1,0 +1,304 @@
+#include <iostream>																								
+#include <math.h>
+using namespace std;
+
+double num1,num2,num3;                 
+int choose;
+char decision,cont;
+
+void calculator();
+
+class scientific_calculator{
+public:
+       static double addition(double,double);             /* This is scientific calculator classes that include all the operation on scientific calculator */      
+       static double substract(double,double);
+       static double multiplication(double,double);
+       static double division(double,double *);
+       static double modulus(double *,double *);
+       static double square(double);
+       static double sqrt_dsa(double);
+       static double cube(double);
+       static double power(double,double);
+       static double sin_dsa(double);
+       static double cos_dsa(double);
+       static double tan_dsa(double);
+       static long int fact(double);
+       static double log_dsa(double);
+       static double log10_dsa(double);
+       static double exp_dsa(double);
+       
+       
+};
+
+double scientific_calculator::addition(double a,double b){
+       return(a+b);
+}
+
+double scientific_calculator::substract(double a,double b){
+       return(a-b);
+}
+
+double scientific_calculator::multiplication(double a,double b){
+       return(a*b);
+}
+
+double scientific_calculator::division(double a,double *b){
+       while(*b==0){
+                    cout<<"\n cannot divide by zero";
+                    cout<<"\n enter the second number again ";
+                    cin>>*b;}return(a/(*b));
+}
+
+double scientific_calculator::modulus(double *a,double *b){
+       while(*b==0){
+                    cout<<"\ncannot divide by zero.";
+                    cout<<"\nenter the second number again";
+                    cout<<*b;}
+                    int x=(int)*a;
+                    int y=(int)*b;
+
+ 
+if(*a-x>0||*b-y>0)cout<<"\nconverting decimal number into an integer to perform modulus";*a=x;*b=y;return(x%y);
+}
+
+double scientific_calculator::square(double x){
+       return(pow(x,2));
+}
+
+double scientific_calculator::sqrt_dsa(double x){
+       return(sqrt(x));
+}
+
+double scientific_calculator::cube(double x){
+       return(pow(x,3));
+}
+
+double scientific_calculator::power(double x,double y){
+       return(pow(x,y));
+}
+
+long int scientific_calculator::fact(double x){
+      int n=(int)x;
+      long int f=1;
+      while(n>1){
+        f*=n;
+        n--;
+      }
+      return f;
+}
+
+double scientific_calculator::sin_dsa(double x){
+       return(sin(x));
+}
+
+double scientific_calculator::cos_dsa(double x){
+       return(cos(x));
+}
+
+double scientific_calculator::tan_dsa(double x){
+       return(tan(x));
+}
+
+double scientific_calculator::log_dsa(double x){
+       return(log(x));
+}
+
+double scientific_calculator::log10_dsa(double x){
+       return(log10(x));
+}
+
+double scientific_calculator::exp_dsa(double x){
+       return(exp(x));
+}
+
+int main()
+{
+    cout<<"\n\t\t\t\tProject Title:"<<endl;
+    cout<<"\n\t\t\t   SCIENTIFIC CALCULATOR"<<endl;
+    cout<<"\t\t\t   ---------- ----------"<<endl;
+    cout<<"\n\t\t\t\tGroup Name:"<<endl;
+    cout<<"\n\t\t\t    OblongAyamSpecial 2"<<endl;
+    cout<<"\t\t\t    -------------------"<<endl;
+    cout<<"\n\t\t\t\tTeam Member:"<<endl;
+    cout<<"\n\t\t\tAmeerul Afiqeen       1513995"<<endl;
+    cout<<"\t\t\tKhairul Ikhwan        1517559"<<endl;
+    cout<<"\t\t\tUmar Faruq            1513781"<<endl;
+    cout<<"\t\t\tMohd Muhaimin         1511435"<<endl;
+    
+    
+   do{       
+    cout<<"\n\n\n\t\t\t   (Y)Proceed or (N)Exit:";
+    cin>>cont;
+    
+    if(cont=='Y'){
+       cout<<"\n\n\n\n";
+       calculator();        
+    }
+    else if(cont=='N'){
+         exit(0);
+    }
+    else{
+       cout<<"\n\n\t\t\t     Please enter again!!"<<endl;  
+    }
+}while(cont!='Y' && cont!='N');
+    
+                
+    system("pause");
+    return 0;                                        
+}
+
+void calculator(){
+     
+     cout<<"===*======*=======*========*=====Choose wisely=====*=====*=======*=======*====";
+    cout<<endl<<endl;
+    cout<<"\n\t\t\t     1\t\taddition\n\t\t\t     2\t\tsubtraction\n\t\t\t     3\t\tmultiplication\n\t\t\t     4\t\tdivision\n\t\t\t     5\t\tmodulus\n\t\t\t     6\t\tsquare\n\t\t\t     7\t\tsquareroot\n\t\t\t     8\t\tcube\n\t\t\t     9\t\tpower\n\t\t\t     10\t\tfactorial\n\t\t\t     11\t\tsin\n\t\t\t     12\t\tcos\n\t\t\t     13\t\ttan\n\t\t\t     14\t\tlogrithm\n\t\t\t     15\t\tnatural logrithm\n\t\t\t     16\t\texponential\n\t\t\t     17\t\texit";
+ 
+ 
+ do{    
+    cout<<"\n\n\n\nWhat type of calculation u want to do?Please enter(1-17) :";                        /* We making do-while loop for asking user to continue this program or not */
+    cin>>choose;
+    
+    switch(choose){                                                  /* Switch : we using this for user to choose from 1 to 16 number. The number have operation on it */
+                   
+                case 1:
+                   cout<<"Enter 2 number to find addition:";                    //num1 + num2 . The result is num3.
+                   cin>>num1>>num2;
+                   
+                   num3=scientific_calculator::addition(num1,num2);
+                   cout<<num1<<" + "<<num2<<" is : "<<num3<<endl;
+                   break;
+                   
+                case 2:
+                   cout<<"Enter 2 number to find subtraction :";                //num1 - num2 . The result is num3.
+                   cin>>num1>>num2;
+                   
+                   num3=scientific_calculator::substract(num1,num2);
+                   cout<<num1<<" - "<<num2<<" is : "<<num3<<endl;
+                   break;
+                   
+                case 3:
+                   cout<<"Enter 2 number to find multiplication:";              //num1 * num2 . The result is num3.
+                   cin>>num1>>num2;
+                   
+                   num3=scientific_calculator::multiplication(num1,num2);
+                   cout<<num1<<" * "<<num2<<" is : "<<num3<<endl;
+                   break;
+                   
+                case 4:
+                   cout<<"Enter 2 number to find division:";                    //num1 / num2 . The result is num3.
+                   cin>>num1>>num2; 
+                   
+                   num3=scientific_calculator::division(num1,&num2);
+                   cout<<num1<<" / "<<num2<<" is : "<<num3<<endl;
+                   break;
+                   
+                case 5:
+                   cout<<"Enter 2 number to find modulus:";                     //num1 % num2 . The result is num3.
+                   cin>>num1>>num2;
+                   
+                   num3=scientific_calculator::modulus(&num1,&num2);
+                   cout<<num1<<" % "<<num2<<" is : "<<num3<<endl;
+                   break;
+                   
+                case 6:                                                               
+                   cout<<"Enter a number to find square :";                     //square of num1. The result is num2                  
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::square(num1);
+                   cout<<"Square of "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                   
+                   
+                case 7:
+                   cout<<"Enter a number to find square root :";                //square root of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::sqrt_dsa(num1);
+                   cout<<"Square root of "<<num1<<" is : "<<num2<<endl; 
+                   break;
+                   
+                case 8:
+                   cout<<"Enter a number to find cube :";                       //cube of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::cube(num1);
+                   cout<<"Cube of "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                case 9:
+                   cout<<"Enter 2 number to find power :";                      //num1 ^ num2 . The result is num3.
+                   cin>>num1>>num2;
+                   
+                   num3=scientific_calculator::power(num1,num2);
+                   cout<<num1<<"^"<<num2<<" is :"<<num3<<endl;
+                   break;
+                   
+                case 10:
+                   cout<<"Enter a number to find the factorial :";              //factorial of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::fact(num1);
+                   cout<<"Factorial of "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                case 11:
+                   cout<<"Enter SIN ";                                          //sin of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::sin_dsa(num1);
+                   cout<<"SIN "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                case 12:
+                   cout<<"Enter COS ";                                          //cos of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::cos_dsa(num1);
+                   cout<<"COS "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                case 13:
+                   cout<<"Enter TAN ";                                          //tan of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::tan_dsa(num1);
+                   cout<<"TAN "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                case 14:
+                   cout<<"Enter LOG ";                                          //log of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::log_dsa(num1);
+                   cout<<"LOG"<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                case 15:
+                   cout<<"Enter LOG10 ";                                        //log10 of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::log10_dsa(num1);
+                   cout<<"LOG10  "<<num1<<" is : "<<num2<<endl;
+                   break; 
+                   
+                case 16:
+                   cout<<"Enter a number for exponential of :";                 //exponential of num1. The result is num2
+                   cin>>num1;
+                   
+                   num2=scientific_calculator::exp_dsa(num1);
+                   cout<<"Exponential of "<<num1<<" is : "<<num2<<endl;
+                   break;
+                   
+                default:
+                   cout<<"Bye~~";
+                   exit(0);
+                   
+                   
+    }
+    cout<<"Press (y) to continue or (n) to exit : ";
+    cin>>decision;
+
+   }while(decision == 'y' || decision == 'Y');
+
+}                                                                                // FINISH!
