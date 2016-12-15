@@ -25,24 +25,38 @@ Before you commit your project, put your team name, name of all members and matr
 
 **Team Name:**
 
-**Project Name:**
+**Project Name:Minimal SQL Database**
 
-**Section:**
+**Section: 2**
 
 **Members:**
 
-  1. Name (Matric)
+  1. Muhammad Tirmizi bin Fakhri (1519129)
   
-  2. Name (Matric)
+  2. Muhammad Shukri bin Safari (1519089)
   
-  3. Name (Matric)
+  3. Tuan Muhammad Naeem bin Tuan Rashid  (1410993)
   
-  4. Name (Matric)
+  4. Ahmad Anas bin Husni (1511415)
   
 ----
 
 ### Report
 
-> Your Project Report Goes Here
+//program features
+
+Our program is mainly about minimal sql database. It consists of several features which is create table, insert value and update value.
+We couldn't find other features to alter the table for this code but we did try other way to do it such as using javascript and html.
+It did work perfectly but it is as we didn't do anything much because the library is already there and we just called it to execute the features. The other option we did find is using C++ language and we did the coding but the problem is we tried to called SQLAPI.h library and it didn't work. The error is as if the library didn't exist.
+
+
+//algorithm
+
+Firstly, when we launch the program, it will first call the Menu Screen function, after that, users are given a choice, to create, to view or to edit the table. If they choose create table, they need to enter rows and columns values. After that, they need to enter data for each rows and columns. If they choose view table, it will show any table that they have created. Next, edit table. User can choose which rows and columns they want to edit, by putting the number of rows and columns, and then input the value they wanted to change and the system will change the value in the table.
+
+
+//major function
+
+The main function in this program that we did is create table which we take the row and column value to create the table and we ask the user to input data in the table. The data is stored in dynamic array allocation.
 
 ----
