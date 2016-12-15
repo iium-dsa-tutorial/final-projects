@@ -31,18 +31,18 @@ Before you commit your project, put your team name, name of all members and matr
 
 **Members:**
 
-  1. Name (Matric)
-  
-  2. Name (Matric)
-  
-  3. Name (Matric)
-  
-  4. Name (Matric)
+  1. Muhammad Mustaqeem Bin Mohd Sopee (1419355)
+  2. Muhammad Amin ashreen Bin Roslan (1415627)
+  3. Ismail Faizi (1210283)
+  4. Ahmadshah Sherzad (1211469)
   
 ----
 
 ### Report
 
-> Your Project Report Goes Here
 
-----
+
+Team Name: The NoobiesProject Name: dictionary Section: 3Members:  1) Muhammad Mustaqeem bin Mohd Sopee (1419355)  2) Muhammad Amin Ashreen Bin Roslan (1415627)  3) Ahmadshah Sherzad  (1211469)  4) Ismail Faizi (1210283)Extra features-	Extra features are not added. There is not much thing can do with trie tree.
+Explaination of the algorithm-	Trie tree is called digital tree and sometimes radix tree or prefix tree. It is a kind of search tree—an ordered tree data structure that is used to store a dynamic set or associative array where the keys are usually strings. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the string associated with that node, and the root is associated with the empty string. Values are not necessarily associated with every node. Rather, values tend only to be associated with leaves, and with some inner nodes that correspond to keys of interest. For the space-optimized presentation of prefix tree, see compact prefix tree.
+Lexicographic sorting of a set of keys can be accomplished with a simple trie-based algorithm as follows:¥	Insert all keys in a trie.¥	Output all keys in the trie by means of pre-order traversal, which results in output that is in ¥	lexicographically increasing order. Pre-order traversal is a kind of depth-first traversal.
+This algorithm is a form of radix sort.	Description of all major functions/classMain function -	There is we create main function to perform all operations.-	This is where we insert the word and the wordmeaning to method insert in Trie class.-	Trie class is called in Main function.                 Array Component Class-	Initialized array named wordmeaning.-	Search is called to check the word either in dictionary or not.-	Deletion of string is implement here. Trie class-	Initialized root with compliment TrieNode.-	Public Void insert is to insert word into trie.		- Message will return if the word has been added.-	public Boolean search is to search word in trie and return true if there is word searching.-	public Boolean startswith is to return word if it start with prefix.-	public trieNode searchnode is to return in index form if the word Is exist.-	public void remove is to remove word from dictionary.TrieNode class-	Initialize the size of an array.-	Construct tree.Detail about data storage scheme .-  we stored selected word and its meaning to database.-  then we ask user to search one word that have been stored in database-  the the dictionary will prompt the word that user search include with its meaning-  then we ask user to delete any word that have been stored.-  the dictionary will display all the words left.
