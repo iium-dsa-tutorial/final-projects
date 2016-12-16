@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <title>Merge Sort.js</title>
+    <script src='javascript/lib/jquery-1.11.3.min.js'></script>
+    <script src='javascripty/lib/bootstrap.min.js'></script>
+    <script src='javascript/sorting.js'></script>
+    <link href='css/lib/bootstrap.min.css' rel='stylesheet'>
+    <style>
+      .compare {
+        font-weight: Italic;
+        color:  #FF2D00 ;
+      }
+      .swap {
+        font-weight: Italic;
+        color: #0000FF;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-xs-3'>
+          <div class='form-group'>
+            <label for='#array-size'>Size of Data</label>
+            <input id='array-size' class='form-control' type='number' value="50"/>
+          </div>
+          <div class='form-group'>
+            <label for='#algo-select'>Algorithm</label>
+            <select class='form-control' id='algo-select'>
+              
+             <!-- <option value='quicksort'>Quicksort</option>
+              <option value='heapsort'>Heapsort</option>-->
+              <option value='mergesort'>Merge sort</option>
+              
+            </select>
+          </div>
+           <div class='form-group'>
+		   <p><b>Random</b></p>
+           <!-- <label for='#init-select'>Initial Data</label>
+            <select class='form-control' id='init-select'>
+              <option value='random'>Random</option>
+             <!--<option value='sorted'>Sorted</option>
+              <option value='reversed'>Reversed</option>
+            </select>-->
+          </div>
+          <div class='form-group' id='pivot-select-div'>
+            <label for='#pivot-select'>Pivot choice</label>
+            <select class='form-control' id='pivot-select'>
+              <option value='random'>Random</option>
+              <option value='first'>First</option>
+              <option value='middle'>Middle</option>
+              <option value='last'>Last</option>
+              
+            </select>
+          </div>
+          <div class='form-group'>
+            <label for='#interval'>Time Interval (ms)</label>
+            <input id='interval' class='form-control' type='number' value="20"/>
+          </div>
+          <p class='text-muted'>
+            Comparisons are <span class='compare'>red</span>,
+            <br>
+            swaps are <span class='swap'>blue</span>.
+          </p>
+          <div class='text-center'>
+            <button class='btn btn-lg btn-primary' id='start-btn'>Start</button>
+          </div>
+        </div>
+        <div class='col-xs-9' id='canvas-div'>
+          <canvas width="600px" height="350px" id="main-canvas">
+        </div>
+      </div>
+    </div>
+    <script>
+      
+	 /*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-50623594-2', 'auto');
+      ga('send', 'pageview');*/
+    </script>
+    <script>
+      $(function() {
+        var aa = null;
+
+        // Make the canvas fit the available space
+        var resize_canvas = function() {
+          $('#main-canvas').width($('#canvas-div').width());
+        }
+        resize_canvas();
+        $(window).resize(resize_canvas);
+
+        // Disable / enable the pivot select as needed
+        var update_pivot_select = function() {
+          var algo = $('#algo-select').val();
+          var pivot_algo = sorting.is_pivot_algo(algo);
+          $('#pivot-select').prop('disabled', !pivot_algo);
+          $('#pivot-select-div').toggleClass('hidden', !pivot_algo);
+        }
+        update_pivot_select();
+        $('#algo-select').change(update_pivot_select);
+
+        $('#start-btn').click(function() {
+          if (aa !== null) aa.cancel();
+
+          var n = parseInt($('#array-size').val());
+          var interval = parseInt($('#interval').val());
+          var algo = $('#algo-select').val();
+          var pivot_type = $('#pivot-select').val();
+          var sort_fn = sorting.get_sort_fn(algo, pivot_type);
+
+       
+
+          var ary = [];
+          for (var i = 0; i < n; i++) {
+            ary.push(Math.random());
+          }
+          var init = $('#init-select').val();
+          if (init === 'sorted') {
+            ary.sort(function(a, b) { return a - b; });
+          } else if (init === 'reversed') {
+            ary.sort(function(a, b) {return b - a; });
+          }
+
+          var canvas = document.getElementById('main-canvas');
+          aa = new sorting.AnimatedArray(ary, canvas, interval);
+          sort_fn(aa);
+        });
+      });
+    </script>
+  </body>
+</html>
