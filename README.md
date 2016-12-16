@@ -24,7 +24,7 @@
 
 ## Introduction:
 
-To implement anything related to a database we need first to get an input as an SQL statement then we should be able to validate that input and give it a logical meaning so that it can processed 
+To implement anything related to a database we need first to get an input as an SQL statement then we should be able to validate that input and give it a logical meaning so that it can be processed. 
 
 ## Implementation:
 
@@ -114,27 +114,39 @@ SELECT * FROM Weather ORDER BY City, Date
 
 ###  Added features:
 
-Null order specification: `NULL FIRST NULL LAST`
+Order specification: `DESC, ASC` 
 
-Order specification: `DESC, ASC`  
+Comparators ( = | (><| != | ~= | ^=) | < | <=| > | >= )
 
 ----
 ## Statements Execution:
 
-so far our program can execute the following commands:
+So far our program can execute the following commands:
 
-**CREAT TABLE**
+- [x] **CREAT TABLE**
+- [x] **DROP TABLE**
+- [x] **INSERT INTO** 
+      - [x] inserting a single complete row. (all columns)
+      - [x] inserting a single partial row. (selected columns)
+- [x] **UPDATE** 
+      - [x] updating all the values in the column
+      - [ ] update specific cells in the column (requires WHERE query).
+- [x] **SELECT **
+      - [x] *
+      - [x] specific columns order not important
 
-**DROP TABLE**
 
-**INSERT INTO**
-
-**UPDATE** 
-
-**SELECT *** 
-
-
-
+- [ ] **WHERE**
+- [ ] **DISTINCT**
+- [ ] **DELETE**
+- [ ] **ORDER BY**
+- [ ] **AND & OR**
+- [ ] comparators ( = | (><| != | ~= | ^=) | < | <=| > | >= )
+- [x] checking the schema.
+- [ ] allowing the user to type the statements on multiple lines
+- [ ] making a data type checking including length checking
+- [ ] Implementing primary key features
 
 ###  Added features:
-so far NON
+
+Requirements are not all completed  yet.
