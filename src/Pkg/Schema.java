@@ -1,5 +1,7 @@
 package Pkg;
 
+import jdk.nashorn.internal.runtime.ParserException;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -30,15 +32,17 @@ public class Schema {
         System.out.print(" in table" + tb_name );
     }
 
-    public void updat_table_where(){}
+    public void updat_table_where(){} // # TODO
 
     public Table getTable(String tb_name){
         return TableSheme.get(tb_name);
     }
+
     public void PrintTablSheme(){
-        System.out.println("This schema contains: " + TableSheme.size() + " Table(s)");
+        System.out.println("This Schema contains a Total of: " + TableSheme.size() + " Table(s)");
         for(String tb_name: TableSheme.keySet()){
-            System.out.println(tb_name);
+            System.out.println("Table: " + tb_name);
+            System.out.println("With " + TableSheme.get(tb_name).number_of_Rows() + " Row(s)");
         }
     }
 

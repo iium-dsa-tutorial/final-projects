@@ -1,26 +1,5 @@
-## Final Projects
-----
-#### This is where all of you needs to submit your source code and report.
-----
+# Final Projects
 
-Here is a short video **[link](https://www.youtube.com/watch?v=XdhuWDdu-rk)** that will show you how to upload your code here. Here is a [list of steps](https://education.github.com/guide/forks#3-completing-assignments) to be followed precsiely.
-
->
-  1. At first, **fork** this repository
-  2. Then **Clone** the forked repository from your account to your pc
-  3. Then add all your project files and put your report in the README.md file
-  4. **Push/Sync** all the changes you made to github
-  5. Create a **Pull Request** on the original repository to complete submission
-
-And here is a long video **[link](https://www.youtube.com/watch?v=73I5dRucCds)** in case you want to know more.
-
-Before you commit your project, put your team name, name of all members and matric, project name and class section in README.md file. And put your team name in the description of the commit.
-
-**At least one of your team member needs to have a GitHub account to be able to submit, do create an account.**
-
-> Bring the [[DSA Project: Group Assessment.pdf](https://github.com/iium-dsa-tutorial/final-projects/blob/master/DSA%20Project-Group%20Assessment.pdf )] document with you in the presentation.
-
-#### You have to fill up the following section - 
 ----
 
 **Team Name:** NoName
@@ -98,8 +77,6 @@ Comments are **not supported.**
 
 Double quotes syntax is **not supported**.
 
-Semi column is **not necessary** but the user will receive a **warning**. 
-
 This syntax in table names is **not supported**: `Customers.CustomerName | c.CustomerName`  as it will make the parser tree bigger in size we decided to skip it.
 
 Subqueries are **not supported.** (As requested)
@@ -160,3 +137,4 @@ so far our program can execute the following commands:
 
 
 ###  Added features:
+so far NON

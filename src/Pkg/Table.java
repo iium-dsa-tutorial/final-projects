@@ -2,9 +2,7 @@ package Pkg;
 
 import jdk.nashorn.internal.runtime.ParserException;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -12,7 +10,7 @@ import java.util.Set;
  */
 public class Table {
 
-    public LinkedHashMap<String, LinkedList> Attributes; // column_name -> all column_values
+    private LinkedHashMap<String, LinkedList> Attributes; // column_name -> all column_values
 
     //private LinkedHashMap<Object, Tuple> Tuples; // (column_value| search_value) -> row_values
 
@@ -49,17 +47,42 @@ public class Table {
 
     public void Insert_Values_With_sp_Columns(LinkedList<String> Column_names, LinkedList values){
 
-        while (!Column_names.isEmpty()){
-            if(Attributes.containsKey(Column_names.getFirst())){
-                Attributes.get(Column_names.getFirst()) //we get the column name Values
-                        .add(values.getFirst()); // we assign a single value
-                System.out.println("Value (" + values.getFirst() + ") inserted in column: "+ Column_names.getFirst());
-            }else {
-                throw new ParserException("This Column: " + Column_names.getFirst()+ " does not exist!");
+        String[] All_Column_nams = Attributes.keySet().toArray(new String[Attributes.keySet().size()]);
+
+
+
+        if(Attributes.keySet().size() != Column_names.size()){ //if not all the columns has been mentioned
+
+            for (int i = 0; i < All_Column_nams.length ; i++) {
+
+                if(All_Column_nams[i].matches(Column_names.getFirst())){
+                    Attributes.get(Column_names.getFirst()) //we get the column name Values
+                            .add(values.getFirst()); // we assign a single value
+                    System.out.println("Value (" + values.getFirst() + ") inserted in column: "+ Column_names.getFirst());
+                    values.pop();
+                    Column_names.pop();
+                }else{
+                    Attributes.get(All_Column_nams[i]) //we get the column name from the array
+                            .add("NULL"); // we assign null
+                }
+
             }
-            values.pop();
-            Column_names.pop();
+
+        }else{
+            while (!Column_names.isEmpty()){
+                if(Attributes.containsKey(Column_names.getFirst())){
+                    Attributes.get(Column_names.getFirst()) //we get the column name Values
+                            .add(values.getFirst()); // we assign a single value
+                    System.out.println("Value (" + values.getFirst() + ") inserted in column: "+ Column_names.getFirst());
+                }else {
+                    throw new ParserException("This Column: " + Column_names.getFirst()+ " does not exist!");
+                }
+                values.pop();
+                Column_names.pop();
+            }
         }
+
+
 
         System.out.println("Table populated successfully!");
     }
@@ -77,34 +100,82 @@ public class Table {
                     temp.add(values.getFirst());
                 }
 
-                Attributes.get(Column_names.getFirst()) //we get the column_name Values (linkedlist)
-                        .add(temp);// we assign the temp linked list as values
+                Attributes.get(Column_names.getFirst()).clear();// we clear all the values
+
+                for (int i = 0; i < size; i++) {
+                    Attributes.get(Column_names.getFirst()).add(i, values.getFirst()); //we get the column_name Values (linkedlist) and we assign the temp linked list as values
+                }
+
+
 
             }else {
                 throw new ParserException("This Column: " + Column_names.getFirst()+ " does not exist!");
             }
-            System.out.print("all the values in The Column " + Column_names.getFirst()+ " has been updated to the vale: " + values.getFirst() );
+            System.out.print("updated The Column " + Column_names.getFirst()+ " to the vale: " + values.getFirst() );
             values.pop();
             Column_names.pop();
         }
     }
 
     public void select_All(Table table){
-        
-        Set<String> Column_names = table.Attributes.keySet();
-        System.out.println("The set: " + Column_names);
-        for (String column_name : Column_names) {
-            System.out.print("||" + column_name + "\t||");
-            System.out.println("\n");
-            LinkedList c_values;
-            c_values = (LinkedList) table.Attributes.get(column_name).clone();
 
-            for (Object c_value : c_values) {
-                System.out.println(c_value);
-            }
+        String[] Column_names = table.Attributes.keySet().toArray(new String[table.Attributes.keySet().size()]);
+
+        int numberofrows = table.Attributes.get(Column_names[0]).size();
+
+
+        for (String column_name : Column_names) {
+            System.out.print("|\t" + column_name + "\t|");
+
         }
-        
+
+        System.out.println("|\n");
+        for (int i = 0; i < numberofrows; i++) {
+            for (int i1 = 0; i1 < Column_names.length; i1++) {
+                System.out.print(" " + table.Attributes.get(Column_names[i1]).get(i) + "\t");
+            }
+
+            System.out.println("\n");
+        }
+
 
     }
 
+    public void select_Column(Table table, LinkedList<String> Column_names){
+
+
+        int numberofrows = table.Attributes.get(Column_names.getFirst()).size();
+
+
+        for (String column_name : Column_names) {
+            System.out.print("|\t" + column_name + "\t|");
+
+        }
+
+        System.out.println("|\n");
+
+        for (int i = 0; i < numberofrows; i++) {
+            for (int i1 = 0; i1 < Column_names.size(); i1++) {
+                System.out.print(" " + table.Attributes.get(Column_names.get(i1)).get(i) + "\t");
+            }
+
+            System.out.println("\n");
+        }
+
+
+    }
+
+    public int numberOfattributes(){
+        return this.Attributes.size();
+    }
+
+    public int number_of_Rows(){
+
+        Object[] values = this.Attributes.keySet().toArray();
+        return this.Attributes.get(values[0]).size();
+    }
+
+    public LinkedHashMap<String, LinkedList> getAttributes() {
+        return Attributes;
+    }
 }
